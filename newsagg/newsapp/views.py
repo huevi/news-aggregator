@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 # GEtting news from Times of India
 
 toi_r = requests.get("https://timesofindia.indiatimes.com/briefs")
-toi_soup = BeautifulSoup(toi_r.content, 'html5lib')
+toi_soup = BeautifulSoup(toi_r.content, 'html.parser')
 
 toi_headings = toi_soup.find_all('h2')
 
@@ -21,7 +21,7 @@ for th in toi_headings:
 #Getting news from Hindustan times
 
 ht_r = requests.get("https://www.hindustantimes.com/india-news/")
-ht_soup = BeautifulSoup(ht_r.content, 'html5lib')
+ht_soup = BeautifulSoup(ht_r.content, 'html.parser')
 ht_headings = ht_soup.findAll("div", {"class": "headingfour"})
 ht_headings = ht_headings[2:]
 ht_news = []
